@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>국민성장펀드의 모든 것 - 안심 가이드 & 실시간 계산기</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts Noto Sans KR -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #0b0f19;
+        }
+        .glow-green {
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.15);
+        }
+        .glow-amber {
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.15);
+        }
+    </style>
+</head>
+<body class="text-slate-200 min-h-screen pb-16">
+
+    <!-- 상단 헤더 영역 -->
+    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="p-2 bg-emerald-500/10 text-emerald-400 rounded-lg border border-emerald-500/20">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                </div>
+                <div>
+                    <span class="text-xs font-semibold tracking-wider text-emerald-400 uppercase bg-emerald-500/10 px-2.5 py-0.5 rounded-full">국민참여형 정책금융</span>
+                    <h1 class="text-xl font-bold text-white mt-1">국민성장펀드의 모든 것</h1>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 bg-slate-950 px-4 py-2 rounded-full border border-slate-800 text-sm">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="text-slate-400 font-medium">검증 상태:</span>
+                <span class="text-white font-semibold">정확한 정보 기반 분석 완료</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 mt-8">
+
+        <!-- 최상단 경고/강조 위젯 -->
+        <div class="mb-8 p-6 bg-gradient-to-r from-amber-500/10 to-orange-500/10 rounded-2xl border border-amber-500/20 glow-amber">
+            <div class="flex gap-4">
+                <div class="text-amber-400 shrink-0 mt-1">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-amber-300">가입 전 이 점을 가장 먼저 확인하세요!</h3>
+                    <p class="text-slate-300 mt-1.5 leading-relaxed text-sm md:text-base">
+                        국민성장펀드는 파격적인 절세 혜택만큼 <strong class="text-white font-semibold underline decoration-amber-400 underline-offset-4">5년 동안 돈이 완전히 묶이는 상품(환매 금지)</strong>입니다. 주택 잔금이나 급한 비상금처럼 가까운 시일 내에 사용할 돈이 아닌, <strong class="text-amber-400 font-semibold">장기 운용이 가능한 '순수 여유 자금'</strong>으로 접근해야 안전한 투자가 됩니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 메인 2열 그리드 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+            <!-- 왼쪽 칼럼 (7열) - 핵심 분석 및 메커니즘 -->
+            <div class="lg:col-span-7 space-y-8">
+
+                <!-- 1. 상품 정체성 요약 -->
+                <section class="bg-slate-900 rounded-2xl p-6 border border-slate-800/80">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-emerald-400 font-bold">01</span>
+                        <h2 class="text-lg font-bold text-white">이 상품은 무엇인가요?</h2>
+                    </div>
+                    <p class="text-slate-300 leading-relaxed mb-6 text-sm md:text-base">
+                        개인 투자자 자금을 모아 대한민국 미래 먹거리인 첨단전략산업(<span class="text-white font-medium bg-slate-800 px-1.5 py-0.5 rounded">반도체, AI, 바이오, 로봇, 우주항공 등</span>) 기업에 선별 투자하는 정부 주도형 정책 펀드입니다.
+                    </p>
+
+                    <!-- 핵심 가상 비교 보드 -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+                            <span class="text-xs text-emerald-400 font-semibold block mb-1">🔥 핵심 안전 장치</span>
+                            <h4 class="text-base font-bold text-white mb-2">정부의 20% 손실 선방</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                펀드 손실이 날 경우 정부가 출자한 재정 자금에서 최대 20%까지 우선적으로 손실을 떠안는 구조(후순위)로 설계되어 안전성을 보강했습니다.
+                            </p>
+                        </div>
+                        <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+                            <span class="text-xs text-red-400 font-semibold block mb-1">⚠️ 투자 위험 고지</span>
+                            <h4 class="text-base font-bold text-white mb-2">원금 비보장성 실적배당</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                예적금처럼 예금자 보호를 받지 않는 실적배당 상품입니다. 만약 전체 손실율이 정부 방어선인 20%를 초과하는 경우 가입자에게 원금 손실이 발생합니다.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. 세제 혜택 디테일 및 모의 계산기 -->
+                <section class="bg-slate-900 rounded-2xl p-6 border border-slate-800/80 glow-green">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-emerald-400 font-bold">02</span>
+                        <h2 class="text-lg font-bold text-white">절세 효과 1분 직접 계산기</h2>
+                    </div>
+                    <p class="text-slate-300 text-xs mb-6">
+                        투자 금액 구간별 차등 소득공제율(3천만 이하 40%, 3천만~5천만 20%, 5천만~7천만 10%)을 기반으로 가입자 본인의 세전 연봉에 맞춘 예상 절세 효과를 산출합니다.
+                    </p>
+
+                    <!-- 계산기 인터페이스 -->
+                    <div class="p-5 bg-slate-950 rounded-xl border border-slate-800 space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 mb-2">1단계: 연간 총투자 금액 설정 (만원)</label>
+                            <div class="flex items-center gap-3">
+                                <input type="range" id="investRange" min="100" max="7000" step="100" value="3000" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500">
+                                <span class="text-lg font-bold text-emerald-400 shrink-0 w-24 text-right"><span id="investText">3,000</span>만 원</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 mb-2">2단계: 과세표준 구간(종합소득 연봉) 선택</label>
+                            <div class="grid grid-cols-3 gap-2">
+                                <button onclick="selectTaxBracket(16.5)" id="btn-1" class="tax-btn py-2.5 px-2 text-xs rounded-lg border text-center font-semibold transition bg-emerald-500/10 border-emerald-500 text-emerald-400">
+                                    연봉 5천만 이하<br>(실효세율 16.5%)
+                                </button>
+                                <button onclick="selectTaxBracket(26.4)" id="btn-2" class="tax-btn py-2.5 px-2 text-xs rounded-lg border text-center font-semibold transition bg-slate-900 border-slate-800 text-slate-400 hover:text-white">
+                                    연봉 8천8백 이하<br>(실효세율 26.4%)
+                                </button>
+                                <button onclick="selectTaxBracket(38.5)" id="btn-3" class="tax-btn py-2.5 px-2 text-xs rounded-lg border text-center font-semibold transition bg-slate-900 border-slate-800 text-slate-400 hover:text-white">
+                                    연봉 1억5천 이하<br>(실효세율 38.5%)
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 계산 결과창 -->
+                        <div class="pt-4 border-t border-slate-800 space-y-3">
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="text-slate-400">소득공제 인정 금액:</span>
+                                <span class="text-white font-medium" id="deductionVal">1,200만 원</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm font-semibold text-slate-200">연말정산 실제 환급 세액(예상):</span>
+                                <span class="text-xl font-extrabold text-emerald-400" id="refundVal">약 198.0만 원</span>
+                            </div>
+                            <div class="p-3 bg-slate-900/60 rounded-lg text-slate-400 text-xs leading-relaxed">
+                                ✨ <strong class="text-slate-200 font-semibold">추가 혜택:</strong> 투자 후 발생하는 배당 및 이자 소득에 대해서는 종합소득세율 합산 걱정 없는 <strong class="text-emerald-400 font-semibold">9.9% 저율 단일세율 분리과세</strong>가 최장 5년간 적용됩니다.
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. 납입 방식 & 가입 프로세스 상세 -->
+                <section class="bg-slate-900 rounded-2xl p-6 border border-slate-800/80">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-emerald-400 font-bold">03</span>
+                        <h2 class="text-lg font-bold text-white">가입 방법 및 납입 방식 핵심 팩트</h2>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- 적립식 이슈 -->
+                        <div class="flex gap-3 p-4 bg-slate-950 rounded-xl border border-slate-800">
+                            <div class="text-indigo-400 mt-1 shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">자유롭게 쪼개어 매달 자동이체(적립식)로 넣을 수 있나요?</h4>
+                                <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+                                    공식적인 기준상 해당 상품은 일정한 주기마다 납입을 유도하는 '정기 자동이체 적립식'으로 명문화되어 있지 않습니다. 기본적으로 가입 시 일시에 자금을 투입하는 **일시금 방식**으로 설계되어 있습니다. 판매사별로 수시 추가 납입이나 분할 입금을 개별 지원하는지는 가입 전 원하는 금융사에 반드시 문의해야 합니다.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 가입 난이도 -->
+                        <div class="flex gap-3 p-4 bg-slate-950 rounded-xl border border-slate-800">
+                            <div class="text-indigo-400 mt-1 shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">모바일 스마트폰 앱 가입은 즉시 완료되나요?</h4>
+                                <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+                                    온라인 및 모바일 판매가 병행되므로 가입은 스마트폰으로 가능합니다. 다만 혜택 적용 조건을 확인하기 위해 <span class="text-emerald-400">"세제 전용 계좌 개설"</span> 및 국세청의 <span class="text-emerald-400">"소득확인증명서(또는 발급번호)"</span> 연동 승인 절차가 수반됩니다. 사전 필수 서류를 구비하지 않으면 모바일에서도 즉시 처리가 거절될 수 있습니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- 오른쪽 칼럼 (5열) - 자가진단, 체크리스트, 가입자 성향 판별 -->
+            <div class="lg:col-span-5 space-y-8">
+
+                <!-- 4. 가입자 투자 성향별 적합성 자가진단 -->
+                <section class="bg-slate-900 rounded-2xl p-6 border border-slate-800/80">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-emerald-400 font-bold">04</span>
+                        <h2 class="text-lg font-bold text-white">나에게 맞을까? 성향 진단</h2>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- 추천 대상 -->
+                        <div class="p-4 bg-emerald-950/20 rounded-xl border border-emerald-500/20">
+                            <h4 class="text-xs font-bold text-emerald-400 mb-2 flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> 이런 성향에 추천합니다!
+                            </h4>
+                            <ul class="space-y-2 text-xs text-slate-300">
+                                <li class="flex items-start gap-1.5">
+                                    <span class="text-emerald-400">✔</span>
+                                    <span>만기인 5년 동안 중도 인출 없이 묶어둘 장기 목돈이 있으신 분</span>
+                                </li>
+                                <li class="flex items-start gap-1.5">
+                                    <span class="text-emerald-400">✔</span>
+                                    <span>소득공제를 이용해 첫 가입만으로도 확정적인 고율의 절세 수익을 확보하고 싶으신 분</span>
+                                </li>
+                                <li class="flex items-start gap-1.5">
+                                    <span class="text-emerald-400">✔</span>
+                                    <span>국내 유망 우량 첨단 신성장 기업에 간접 투자하며 정부의 손실 방어 혜택을 보고 싶으신 분</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- 비추천 대상 -->
+                        <div class="p-4 bg-red-950/20 rounded-xl border border-red-500/20">
+                            <h4 class="text-xs font-bold text-red-400 mb-2 flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-red-400"></span> 이런 분들은 보수적으로 접근하세요!
+                            </h4>
+                            <ul class="space-y-2 text-xs text-slate-300">
+                                <li class="flex items-start gap-1.5">
+                                    <span class="text-red-400">✖</span>
+                                    <span>가까운 미래(3년 안팎)에 가계 내에 큰 지출 계획(이사비, 결혼 자금, 기기 구비 등)이 예정되신 분</span>
+                                </li>
+                                <li class="flex items-start gap-1.5">
+                                    <span class="text-red-400">✖</span>
+                                    <span>미약하더라도 자산 가치 하락이나 원금 손실 우려 자체에 스트레스를 크게 받으시는 분</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5. 가입 전 필수 체크리스트 (인터랙티브 대화형) -->
+                <section class="bg-slate-900 rounded-2xl p-6 border border-slate-800/80">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-emerald-400 font-bold">05</span>
+                        <h2 class="text-lg font-bold text-white">가입 자격 스마트 자가진단</h2>
+                    </div>
+                    <p class="text-xs text-slate-400 mb-4">가입 조건을 꼼꼼히 확인하고 체크박스를 터치해 보세요.</p>
+
+                    <!-- 진척도 바 -->
+                    <div class="w-full bg-slate-950 h-1.5 rounded-full mb-4 overflow-hidden">
+                        <div id="progressBar" class="bg-emerald-500 h-full transition-all duration-300" style="width: 0%"></div>
+                    </div>
+
+                    <div class="space-y-3.5">
+                        <label class="flex items-start gap-3 p-3 bg-slate-950 rounded-xl border border-slate-800 cursor-pointer select-none hover:bg-slate-900/40 transition">
+                            <input type="checkbox" onchange="updateChecklist()" class="checklist-item mt-1 rounded border-slate-700 bg-slate-800 text-emerald-500 focus:ring-emerald-500 w-4 h-4">
+                            <span class="text-xs text-slate-300 leading-relaxed">
+                                <strong>금융소득종합과세 미해당 여부</strong><br>
+                                최근 3개년 동안 연간 이자 및 배당소득 합산액이 단 한 번이라도 2천만 원을 초과한 이력이 없으신가요? (초과 시 전용 절세 계좌 가입 제한)
+                            </span>
+                        </label>
+
+                        <label class="flex items-start gap-3 p-3 bg-slate-950 rounded-xl border border-slate-800 cursor-pointer select-none hover:bg-slate-900/40 transition">
+                            <input type="checkbox" onchange="updateChecklist()" class="checklist-item mt-1 rounded border-slate-700 bg-slate-800 text-emerald-500 focus:ring-emerald-500 w-4 h-4">
+                            <span class="text-xs text-slate-300 leading-relaxed">
+                                <strong>5년 만기 상환 운용 확인</strong><br>
+                                이 펀드는 5년 만기 폐쇄형입니다. 5년 동안 전혀 찾지 못해도 무방한 온전한 성격의 잉여 목돈으로만 구성되어 있나요?
+                            </span>
+                        </label>
+
+                        <label class="flex items-start gap-3 p-3 bg-slate-950 rounded-xl border border-slate-800 cursor-pointer select-none hover:bg-slate-900/40 transition">
+                            <input type="checkbox" onchange="updateChecklist()" class="checklist-item mt-1 rounded border-slate-700 bg-slate-800 text-emerald-500 focus:ring-emerald-500 w-4 h-4">
+                            <span class="text-xs text-slate-300 leading-relaxed">
+                                <strong>소득확인증명서 연동 준비</strong><br>
+                                가입 시 국세청 홈택스나 손택스를 통해 <span class="text-emerald-400 font-semibold">'개인종합자산관리계좌(ISA) 가입용 소득확인증명서'</span>를 발급받아 두셨거나 발급번호를 메모하셨나요?
+                            </span>
+                        </label>
+
+                        <label class="flex items-start gap-3 p-3 bg-slate-950 rounded-xl border border-slate-800 cursor-pointer select-none hover:bg-slate-900/40 transition">
+                            <input type="checkbox" onchange="updateChecklist()" class="checklist-item mt-1 rounded border-slate-700 bg-slate-800 text-emerald-500 focus:ring-emerald-500 w-4 h-4">
+                            <span class="text-xs text-slate-300 leading-relaxed">
+                                <strong>가입 선착순 일정 인지</strong><br>
+                                전체 한도가 조기 소진되면 예약이 전면 차단될 수 있습니다. 판매 개시일(2026년 5월 22일 ~ 6월 11일) 초반에 가입하실 계획을 완료하셨나요?
+                            </span>
+                        </label>
+                    </div>
+
+                    <!-- 완료 피드백 박스 -->
+                    <div id="congratsBox" class="hidden mt-4 p-3 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs rounded-xl text-center font-semibold">
+                        🎉 가입 조건 사전 스마트 체크가 완료되었습니다.
+                    </div>
+                </section>
+
+            </div>
+
+        </div>
+
+        <!-- 하단 정보 출처 및 유의 사항 -->
+        <footer class="mt-12 pt-8 border-t border-slate-800 text-center text-xs text-slate-500 space-y-2">
+            <p>※ 본 가이드 정보는 대한민국 정부 보도자료에 수록된 정확한 금융 가이드라인에 기초하여 구성되었습니다.</p>
+            <p>※ 계산기의 세전 절세 결과는 가입자 본인의 적용 소득 구간과 연말정산 기여도에 따라 실 연도 정산 시 일부 상이해질 수 있습니다.</p>
+        </footer>
+
+    </main>
+
+    <!-- 실시간 계산기 스크립트 -->
+    <script>
+        let currentTaxRate = 16.5; // 기본값 연봉 5천 이하 구간
+
+        const investRange = document.getElementById('investRange');
+        const investText = document.getElementById('investText');
+        const deductionVal = document.getElementById('deductionVal');
+        const refundVal = document.getElementById('refundVal');
+        const congratsBox = document.getElementById('congratsBox');
+        const progressBar = document.getElementById('progressBar');
+
+        function formatNumber(num) {
+            return num.toLocaleString();
+        }
+
+        function calculateTax() {
+            const investAmount = parseInt(investRange.value); // 만원 단위
+            investText.innerText = formatNumber(investAmount);
+
+            // 1. 구간별 소득공제 인정액 계산
+            let deduction = 0;
+            if (investAmount <= 3000) {
+                deduction = investAmount * 0.4;
+            } else if (investAmount <= 5000) {
+                deduction = (3000 * 0.4) + ((investAmount - 3000) * 0.2);
+            } else if (investAmount <= 7000) {
+                deduction = (3000 * 0.4) + (2000 * 0.2) + ((investAmount - 5000) * 0.1);
+            } else {
+                deduction = 1800; // 최대 1800만원 한도
+            }
+
+            deductionVal.innerText = `${formatNumber(Math.round(deduction))}만 원`;
+
+            // 2. 환급액 계산 (세율 대비)
+            const refund = deduction * (currentTaxRate / 100);
+            refundVal.innerText = `약 ${refund.toFixed(1)}만 원`;
+        }
+
+        function selectTaxBracket(rate) {
+            currentTaxRate = rate;
+            
+            // 모든 버튼 비활성화 스타일 적용
+            document.querySelectorAll('.tax-btn').forEach(btn => {
+                btn.classList.remove('bg-emerald-500/10', 'border-emerald-500', 'text-emerald-400');
+                btn.classList.add('bg-slate-900', 'border-slate-800', 'text-slate-400');
+            });
+
+            // 선택한 버튼 활성화 스타일 적용
+            let selectedId = '';
+            if (rate === 16.5) selectedId = 'btn-1';
+            else if (rate === 26.4) selectedId = 'btn-2';
+            else if (rate === 38.5) selectedId = 'btn-3';
+
+            const activeBtn = document.getElementById(selectedId);
+            activeBtn.classList.add('bg-emerald-500/10', 'border-emerald-500', 'text-emerald-400');
+            activeBtn.classList.remove('bg-slate-900', 'border-slate-800', 'text-slate-400');
+
+            calculateTax();
+        }
+
+        function updateChecklist() {
+            const items = document.querySelectorAll('.checklist-item');
+            let checkedCount = 0;
+            items.forEach(item => {
+                if (item.checked) checkedCount++;
+            });
+
+            const percent = (checkedCount / items.length) * 100;
+            progressBar.style.width = `${percent}%`;
+
+            if (checkedCount === items.length) {
+                congratsBox.classList.remove('hidden');
+            } else {
+                congratsBox.classList.add('hidden');
+            }
+        }
+
+        // 초기 실행
+        investRange.addEventListener('input', calculateTax);
+        calculateTax();
+    </script>
+</body>
+</html>
